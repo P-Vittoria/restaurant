@@ -11,7 +11,7 @@
 
 <div id="content">
   <div class="Item listing">
-    <h1>Subjects</h1>
+    <h1>Menu</h1>
 
     <div class="actions">
       <a class="action" href="">Create New Item</a>
@@ -34,7 +34,7 @@
           <td><?php echo h($item['name']); ?></td>
           <td><?php echo h($item['disc']); ?></td>
     	    <td><?php echo h($item['price']); ?></td>
-          <td><?php echo $item['display'] == 1 ? 'true' : 'false'; ?></td>
+          <td><?php echo $item['display'] == 1 ? 'available' : 'unavailable'; ?></td>
           <td><a class="action" href="<?php echo url_for('/staff/menu/show.php?id=' . h(u($item['iid']))); ?>">View</a></td>
           <td><a class="action" href="">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
