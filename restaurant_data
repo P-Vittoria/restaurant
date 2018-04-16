@@ -1,0 +1,63 @@
+CREATE TABLE category
+(
+cid INT AUTO_INCREMENT,
+name VARCHAR(256) NOT NULL,
+PRIMARY KEY (cid)
+)
+Engine=innodb;
+
+
+INSERT INTO category (name)
+VALUES ('starters'),
+('drinks'),
+('sandwiches'),
+('salads'),
+('entrees'),
+('dessert');
+
+
+CREATE TABLE item
+(
+cid INT,
+iid INT AUTO_INCREMENT,
+name VARCHAR(256) NOT NULL,
+disc VARCHAR(256),
+price DECIMAL(5,2),
+display CHAR(1),
+FOREIGN KEY (cid) REFERENCES category(cid),
+PRIMARY KEY (iid)
+)
+
+Engine=innodb;
+
+
+INSERT INTO item (cid, name, disc, price, display)
+VALUES
+(1, 'Mozzarella Sticks', '6 sticks, fried to perfection', '6.50', 1),
+(1, 'Nachos', 'Chicken, nacho cheese, olives, jalapenos, pico de gallo', '7.50', 1),
+(1, 'Crab Cakes', '3 flaky cakes', '8.50', 1),
+(2, 'Soda', 'Sprite, Coke, Root Beer, Pibb', '2.50', 1),
+(2, 'Lemonade', 'Freshly Squeezed', '3.50', 1),
+(2, 'Ice Tea', 'Home Brewed with lemon', '3.50', 1),
+(3, 'Caprese', 'Fresh mozzarella, tomato, spinach, with a pesto mayo vinaigrette', '11.50', 1),
+(3, 'Rueben', 'Corned beef, sauerkraut, Swiss cheese ', '11.50', 1),
+(3, 'Pulled Pork', 'Smoked Pulled pork with house barbeque and grilled onions', '12.50', 1),
+(4, 'Salmon Caesar Salad', 'Romaine lettuce, Caesar dressing, grilled salmon, parmesan', '12.50', 1),
+(4, 'House Salad', 'Romaine, cherry tomatoes, carrots, onion, bacon, house dressing', '10.50', 1),
+(5, 'Sirloin', '7 oz Sirloin, smashed potatoes, haricot verts, grilled tomatoes', '17.50', 1),
+(5, 'Grouper', 'Fresh Grouper, grilled zucchini, lentils', '15.50', 1),
+(5, 'Tirsmisu', 'Homemade', '6.50', 1),
+(5, 'Cheesecake', 'Homemade Original, Strawberry Chocolate, or Blue Berry', '7.50', 1);
+
+
+
+CREATE TABLE about
+(
+aid INT AUTO_INCREMENT,
+text VARCHAR(256),
+PRIMARY KEY (aid)
+)
+Engine=innodb;
+
+INSERT INTO about (text)
+VALUES ('Vittys is a great spot for all kinds of food');

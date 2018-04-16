@@ -1,12 +1,9 @@
 <?php require_once('../../../private/initialize.php'); ?>
 
 <?php
-  $items = [
-    ['id' => '1', 'category' => '1', 'availability' => '1', 'price' => '3', 'discription' => 'Yummy', 'item_name' => 'Panini'],
-    ['id' => '2', 'category' => '2', 'availability' => '1', 'price' => '4', 'discription' => 'Yummy', 'item_name' => 'Brisket'],
-    ['id' => '3', 'category' => '3', 'availability' => '1', 'price' => '6', 'discription' => 'Yummy', 'item_name' => 'Caeser Salad'],
-    ['id' => '4', 'category' => '4', 'availability' => '1', 'price' => '8', 'discription' => 'Yummy', 'item_name' => 'Salmon'],
-  ];
+
+  $item_set = find_all_items();
+
 ?>
 
 <?php $page_title = 'Menu'; ?>
@@ -22,29 +19,32 @@
 
   	<table class="list">
   	  <tr>
-        <th>ID</th>
         <th>Category</th>
-        <th>Availability</th>
-  	    <th>Price</th>
+        <th>ID</th>
+        <th>Name</th>
   	    <th>Discription</th>
-  	    <th>Item Name</th>
-        <th>&nbsp;</th>
+  	    <th>Price</th>
+  	    <th>Availablity</th>
   	  </tr>
 
-      <?php foreach($items as $item) { ?>
+      <?php while($item = mysqli_fetch_assoc($item_set)) { ?>
         <tr>
-          <td><?php echo h($item['id']); ?></td>
-          <td><?php echo h($item['category']); ?></td>
-          <td><?php echo $item['availability'] == 1 ? 'true' : 'false'; ?></td>
+          <td><?php echo h($item['cid']); ?></td>
+          <td><?php echo h($item['iid']); ?></td>
+          <td><?php echo h($item['name']); ?></td>
+          <td><?php echo h($item['disc']); ?></td>
     	    <td><?php echo h($item['price']); ?></td>
-          <td><?php echo h($item['discription']); ?></td>
-          <td><?php echo h($item['item_name']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/menu/show.php?id=' . h(u($item['id']))); ?>">View</a></td>
+          <td><?php echo $item['display'] == 1 ? 'true' : 'false'; ?></td>
+          <td><a class="action" href="<?php echo url_for('/staff/menu/show.php?id=' . h(u($item['iid']))); ?>">View</a></td>
           <td><a class="action" href="">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
+
+    <?php
+      mysqli_free_result($item_set);
+    ?>
 
   </div>
 
