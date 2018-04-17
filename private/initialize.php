@@ -26,5 +26,4 @@
 
   $db = db_connect();
 
-
 ?>

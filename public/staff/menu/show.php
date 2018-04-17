@@ -16,7 +16,7 @@ $item = find_item_by_id($id);
 
   <div class="item show">
 
-    <h1>Item: <?php echo h($item['name']); ?></h1>
+    <h1>Item: <?php echo h($item['item_name']); ?></h1>
 
     <div class="attributes">
       <dl>
@@ -25,7 +25,7 @@ $item = find_item_by_id($id);
       </dl>
       <dl>
         <dt>Item Name</dt>
-        <dd><?php echo h($item['name']); ?></dd>
+        <dd><?php echo h($item['item_name']); ?></dd>
       </dl>
       <dl>
         <dt>Discription</dt>

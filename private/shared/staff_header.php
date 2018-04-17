@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      <h1>GBI Staff Area</h1>
+      <h1>Vitty's Staff Area</h1>
     </header>
 
     <navigation>

@@ -46,9 +46,16 @@ VALUES
 (4, 'House Salad', 'Romaine, cherry tomatoes, carrots, onion, bacon, house dressing', '10.50', 1),
 (5, 'Sirloin', '7 oz Sirloin, smashed potatoes, haricot verts, grilled tomatoes', '17.50', 1),
 (5, 'Grouper', 'Fresh Grouper, grilled zucchini, lentils', '15.50', 1),
-(5, 'Tirsmisu', 'Homemade', '6.50', 1),
-(5, 'Cheesecake', 'Homemade Original, Strawberry Chocolate, or Blue Berry', '7.50', 1);
+(6, 'Tirsmisu', 'Homemade', '6.50', 1),
+(6, 'Cheesecake', 'Homemade Original, Strawberry Chocolate, or Blue Berry', '7.50', 1);
 
+INSERT INTO item (cid, item_name, disc, price, display)
+VALUES
+(5, 'Big Burger', 'Tomato, grilled onions, cheddar cheese, egg, bacon', '10.50', 0);
+
+UPDATE item
+SET item_name = 'Tiramisu'
+WHERE item_name = 'Tirsmisu';
 
 
 CREATE TABLE about
@@ -61,3 +68,10 @@ Engine=innodb;
 
 INSERT INTO about (text)
 VALUES ('Vittys is a great spot for all kinds of food');
+
+
+
+SELECT c.category_name, c.cid, i.iid, i.item_name, i.disc, i.price, i.display
+FROM category as c, item as i
+WHERE c.cid = i.iid
+GROUP BY (c.cid) ;

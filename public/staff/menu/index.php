@@ -14,14 +14,14 @@
     <h1>Menu</h1>
 
     <div class="actions">
-      <a class="action" href="">Create New Item</a>
+      <a class="action" href="<?php echo url_for('/staff/menu/new.php'); ?>">Create New Item</a>
     </div>
 
   	<table class="list">
   	  <tr>
         <th>Category</th>
         <th>ID</th>
-        <th>Name</th>
+        <th>Item Name</th>
   	    <th>Discription</th>
   	    <th>Price</th>
   	    <th>Availablity</th>
@@ -31,7 +31,7 @@
         <tr>
           <td><?php echo h($item['cid']); ?></td>
           <td><?php echo h($item['iid']); ?></td>
-          <td><?php echo h($item['name']); ?></td>
+          <td><?php echo h($item['item_name']); ?></td>
           <td><?php echo h($item['disc']); ?></td>
     	    <td><?php echo h($item['price']); ?></td>
           <td><?php echo $item['display'] == 1 ? 'available' : 'unavailable'; ?></td>
