@@ -1,0 +1,62 @@
+<!doctype html>
+
+
+<html>
+<title>Restaurant</title>
+<body>
+<h1>Restaurant</h1>
+
+<h3>Insert Item</h3>
+<form action="insertitem.php" method="post">
+cid: <input type="text" name="cid">
+<br>
+iid: <input type="text" name="iid">
+<br>
+Item Name: <input type="text" name="item_name">
+<br>
+Description: <input type="text" name="disc">
+<br>
+Price:  <input type="text" name="price">
+<br>
+Display:  <input type="text" name="display">
+<br>
+<button type="submit" name="insertitem">Insert Item</button>
+</form>
+
+<br>
+
+<h3>Delete Item</h3>
+<form action="deleteitem.php" method="post">
+iid: <input type="text" name="iid">
+<button type="submit" name="deleteitem">Delete Item</button>
+</form>
+
+<br>
+
+<h3>Update Item</h3>
+<form action="updateitem.php" method="post">
+Update Item Where iid = <input type="text" name="iid">
+<br>
+Set cid = <input type="text" name="cid">
+<br>
+Set Item Name = <input type="text" name="item_name">
+<br>
+Set Description = <input type="text" name="disc">
+<br>
+Set Price = <input type="text" name="price">
+<br>
+Set Display = <input type="text" name="display">
+<br>
+<button type="submit" name="deleteitem">Update Item</button>
+</form>
+
+<br>
+
+<h3>Show Item</h3>
+
+<form action="selectitem.php" method="post">
+<button type="submit" name="selectitem">Select From Item</button><br>
+</form>
+
+</body>
+</html>
