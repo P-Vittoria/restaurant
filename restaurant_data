@@ -1,13 +1,13 @@
 CREATE TABLE category
 (
 cid INT AUTO_INCREMENT,
-name VARCHAR(256) NOT NULL,
+categoryname VARCHAR(256) NOT NULL,
 PRIMARY KEY (cid)
 )
 Engine=innodb;
 
 
-INSERT INTO category (name)
+INSERT INTO category (category_name)
 VALUES ('starters'),
 ('drinks'),
 ('sandwiches'),
@@ -20,18 +20,17 @@ CREATE TABLE item
 (
 cid INT,
 iid INT AUTO_INCREMENT,
-name VARCHAR(256) NOT NULL,
+item_name VARCHAR(256) NOT NULL,
 disc VARCHAR(256),
 price DECIMAL(5,2),
 display CHAR(1),
 FOREIGN KEY (cid) REFERENCES category(cid),
 PRIMARY KEY (iid)
-)
-
-Engine=innodb;
+);
 
 
-INSERT INTO item (cid, name, disc, price, display)
+
+INSERT INTO item (cid, item_name, disc, price, display)
 VALUES
 (1, 'Mozzarella Sticks', '6 sticks, fried to perfection', '6.50', 1),
 (1, 'Nachos', 'Chicken, nacho cheese, olives, jalapenos, pico de gallo', '7.50', 1),
@@ -71,7 +70,22 @@ VALUES ('Vittys is a great spot for all kinds of food');
 
 
 
-SELECT c.category_name, c.cid, i.iid, i.item_name, i.disc, i.price, i.display
+SELECT c.category_name, c.cid, i.iid, i.item_name
 FROM category as c, item as i
-WHERE c.cid = i.iid
-GROUP BY (c.cid) ;
+WHERE c.cid= '2';
+
+
+
+
+CREATE TABLE admins
+(
+id INT(11) NOT NULL AUTO_INCREMENT,
+first_name VARCHAR(255),
+last_name VARCHAR(255),
+email VARCHAR(255),
+username VARCHAR(255),
+hashed_password VARCHAR(255),
+PRIMARY KEY (id)
+);
+
+ALTER TABLE admins ADD INDEX index_username(username);
