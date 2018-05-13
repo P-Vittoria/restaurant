@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>Restaurant</title>
+    <meta charset="utf-8">
+    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+    <style type='text/css'>
+
+    input {
+    	float: right;
+      padding: 3px;
+    }
+
+    input[type=text]:focus {
+    border: 2px solid;
+    }
+
+    form {
+    	line-height: 2em;
+      max-width: 50%;
+    }
+
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+
+  </style>
+  </head>
+
+  <header>
+      <h1>
+        <a href="main.html">
+          <img src="images/lilbits.png" width="100" height="100" alt="" />
+        </a>
+      </h1>
+    </header>
+
+
+    <navigation>
+      <ul class="subjects">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="twitter.html">Twitter</a></li>
+        <li><a href="about.php">About Us</a></li>
+      </ul>
+    </navigation>
+
+
+<body>
+  <div id="content">
+        <div class="Admin menu">
+          <h1> Staff Admin Menu Editor </h1>
+<h5><a href="menu.html">&larr; &#32;Back to Public Menu</a></h5>
+<h5><a href="main.html">&larr; &#32;Back to Main Menu</a></h5>
+
+<h3>Show Items</h3>
+<form action="selectitem.php" method="post">
+<button type="submit" name="selectitem">Select From Item</button><br>
+</form>
+
+<br>
+
+<h3>Create New Item</h3>
+<form action="insertitem.php" method="post">
+Category ID: <input type="text" name="cid">
+<br>
+Item ID: <input type="text" name="iid">
+<br>
+Item Name: <input type="text" name="item_name">
+<br>
+Description: <input type="text" name="disc">
+<br>
+Price:  <input type="text" name="price">
+<br>
+Available? 1-Y 0-N:  <input type="text" name="display">
+<br>
+<button type="submit" name="insertitem">Insert Item</button>
+</form>
+
+<br>
+
+<h3>Delete Item by Item ID </h3>
+<form action="deleteitem.php" method="post">
+Item ID: <input type="text" name="iid"><br/>
+<button type="submit" name="deleteitem">Delete Item</button>
+</form>
+
+<br>
+
+<h3>Edit Item by Item ID</h3>
+<form action="updateitem.php" method="post">
+Edit Item with ID = <input type="text" name="iid">
+<br>
+Change Category ID to: <input type="text" name="cid">
+<br>
+Change Item Name to: <input type="text" name="item_name">
+<br>
+Change Description to: <input type="text" name="disc">
+<br>
+Change Price to: <input type="text" name="price">
+<br>
+Change Abailability to: <input type="text" name="display">
+<br>
+<button type="submit" name="edititem">Update Item</button>
+</form>
+
+<br>
+
+</body>
+</html>
