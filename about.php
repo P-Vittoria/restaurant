@@ -18,7 +18,7 @@
 
     <navigation>
       <ul class="subjects">
-        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html">Menu</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="twitter.html">Twitter</a></li>
         <li><a href="about.php">About Us</a></li>

@@ -1,5 +1,6 @@
 <!doctype html>
 
+<<<<<<< HEAD
 <html lang="en">
   <head>
     <title>Restaurant</title>
@@ -73,6 +74,19 @@
 Category ID: <input type="text" name="cid">
 <br>
 Item ID: <input type="text" name="iid">
+=======
+
+<html>
+<title>Restaurant</title>
+<body>
+<h1>Restaurant</h1>
+
+<h3>Insert Item</h3>
+<form action="insertitem.php" method="post">
+cid: <input type="text" name="cid">
+<br>
+iid: <input type="text" name="iid">
+>>>>>>> 568a8a01e9d798922368e6597f0375667bfb145d
 <br>
 Item Name: <input type="text" name="item_name">
 <br>
@@ -80,21 +94,32 @@ Description: <input type="text" name="disc">
 <br>
 Price:  <input type="text" name="price">
 <br>
+<<<<<<< HEAD
 Available? 1-Y 0-N:  <input type="text" name="display">
+=======
+Display:  <input type="text" name="display">
+>>>>>>> 568a8a01e9d798922368e6597f0375667bfb145d
 <br>
 <button type="submit" name="insertitem">Insert Item</button>
 </form>
 
 <br>
 
+<<<<<<< HEAD
 <h3>Delete Item by Item ID </h3>
 <form action="deleteitem.php" method="post">
 Item ID: <input type="text" name="iid"><br/>
+=======
+<h3>Delete Item</h3>
+<form action="deleteitem.php" method="post">
+iid: <input type="text" name="iid">
+>>>>>>> 568a8a01e9d798922368e6597f0375667bfb145d
 <button type="submit" name="deleteitem">Delete Item</button>
 </form>
 
 <br>
 
+<<<<<<< HEAD
 <h3>Edit Item by Item ID</h3>
 <form action="updateitem.php" method="post">
 Edit Item with ID = <input type="text" name="iid">
@@ -110,9 +135,35 @@ Change Price to: <input type="text" name="price">
 Change Abailability to: <input type="text" name="display">
 <br>
 <button type="submit" name="edititem">Update Item</button>
+=======
+<h3>Update Item</h3>
+<form action="updateitem.php" method="post">
+Update Item Where iid = <input type="text" name="iid">
+<br>
+Set cid = <input type="text" name="cid">
+<br>
+Set Item Name = <input type="text" name="item_name">
+<br>
+Set Description = <input type="text" name="disc">
+<br>
+Set Price = <input type="text" name="price">
+<br>
+Set Display = <input type="text" name="display">
+<br>
+<button type="submit" name="deleteitem">Update Item</button>
+>>>>>>> 568a8a01e9d798922368e6597f0375667bfb145d
 </form>
 
 <br>
 
+<<<<<<< HEAD
+=======
+<h3>Show Item</h3>
+
+<form action="selectitem.php" method="post">
+<button type="submit" name="selectitem">Select From Item</button><br>
+</form>
+
+>>>>>>> 568a8a01e9d798922368e6597f0375667bfb145d
 </body>
 </html>

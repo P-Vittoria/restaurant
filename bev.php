@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
   </head>
-  
+
 
   <header>
       <h1>
-        <a href="main.html">
+        <a href="index.html">
           <img src="images/lilbits.png" width="100" height="100" alt="" />
         </a>
       </h1>
