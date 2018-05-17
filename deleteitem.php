@@ -4,9 +4,10 @@ $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_v
 if (!$con)
 	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
 
-$var_iid = $_POST['iid'];
+$var_iid = mysqli_real_escape_string($con,$_POST['iid']);
 
 $query = "DELETE FROM item WHERE iid='$var_iid'";
+
 
 if (mysqli_query($con, $query))
 	{echo "1 record deleted" . "<br>";}

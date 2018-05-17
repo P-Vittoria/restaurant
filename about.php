@@ -9,7 +9,7 @@
 
 	<header>
       <h1>
-        <a href="main.html">
+        <a href="index.html">
           <img src="images/lilbits.png" width="100" height="100" alt="" />
         </a>
       </h1>
@@ -18,7 +18,7 @@
 
     <navigation>
       <ul class="subjects">
-        <li><a href="index.html">Menu</a></li>
+        <li><a href="menu.html">Menu</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="twitter.html">Twitter</a></li>
         <li><a href="about.php">About Us</a></li>

@@ -15,7 +15,6 @@
       </h1>
     </header>
 
-
     <navigation>
       <ul class="subjects">
         <li><a href="menu.html">Menu</a></li>
