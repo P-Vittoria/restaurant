@@ -92,3 +92,32 @@ CREATE TABLE contactmail
     message VARCHAR(1000) NOT NULL,
 PRIMARY KEY (mid)
 );
+
+
+CREATE TABLE news
+(
+    nid INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    pubdate DATE NOT NULL,
+    content VARCHAR(100) NOT NULL,
+PRIMARY KEY (nid)
+);
+
+INSERT INTO news (title, pubdate, content)
+VALUES ('starters'),
+('drinks'),
+('sandwiches'),
+('salads'),
+('entrees'),
+('dessert');
+
+CREATE TABLE events
+(
+  eid INT AUTO_INCREMENT,
+  title VARCHAR(256) NOT NULL,
+  eventdate DATE,
+  location VARCHAR(256),
+  description VARCHAR(256),
+  display CHAR(1),
+  PRIMARY KEY (eid)
+)

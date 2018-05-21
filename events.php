@@ -31,9 +31,9 @@
 <body>
   <div id="content">
         <div class="Category listing">
-          <h1>Dessert</h1>
+          <h1>Events</h1>
 
-          <h4><a href="menu.html">&larr; &#32;Back to Categories</a></h4>
+          <h4><a href="index.php">&larr; &#32;Back to Main</a></h4>
           <br/ >
 
 
@@ -44,13 +44,13 @@ if (!$con)
 	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
 
 
-$sql = "SELECT i.cid, i.iid, i.item_name, i.disc, i.price, i.display FROM item as i WHERE i.cid= '6' and i.display= '1'";
+$sql = "SELECT title, eventdate, location, description FROM events";
 $result = mysqli_query($con, $sql);
 
 if ($result->num_rows > 0) {
-	echo "<table><tr><th>Name</th><th>Description</th><th>Price</th></tr>";
+	echo "<table><tr><th>Title</th><th>Date</th><th>Location</th><th>Descripton</th></tr>";
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["item_name"]."</td><td>".$row["disc"]."</td><td>".$row["price"]."</td></tr>";
+        echo "<tr><td>".$row["title"]."</td><td>".$row["eventdate"]."</td><td>".$row["location"]."</td><td>".$row["description"]."</td></tr>";
     }
     echo "</table>";
 } else {
@@ -63,6 +63,16 @@ mysqli_close($con);
 
 
 </div>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>Employees Only!<br>
+<a href="adminevent.html">Edit Events</a></p>
+
+
 </body>
 
 

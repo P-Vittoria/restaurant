@@ -10,7 +10,7 @@ table, th, td {
 	border: 2px solid black;
 	padding: 10px 10px;
 	background-color: #FFEDBC;
-	font-family: "Gill Sans";
+	font-family: "Gill Sans";/* DEBUG:  */
 	font-size: 16px;
 }
 </style>
@@ -21,7 +21,7 @@ table, th, td {
 					<h1>Contact Message Center</h1>
 
 					<h4><a href="contact.html">&larr; &#32;Back to Contact Us</a></h4>
-					<h4><a href="index.html">&larr; &#32;Back to Main</a></h4>
+					<h4><a href="index.php">&larr; &#32;Back to Main</a></h4>
 					<br/ >
 
 <?php

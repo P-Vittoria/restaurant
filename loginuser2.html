@@ -3,33 +3,10 @@
 
 <html lang="en">
   <head>
-    <title>Contact</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
 	  <link href="contact.css" rel="stylesheet" type="text/css">
-
-    <style type='text/css'>
-
-    input {
-    	float: right;
-      padding: 3px;
-    }
-
-    input[type=text]:focus {
-    border: 1px solid;
-    }
-
-    form {
-    	line-height: 2em;
-      width: 60%;
-      border: 1px;
-      background-color: #ffffff;
-      padding: 5px 5px 5px 5px;
-    }
-
-
-
-  </style>
   </head>
 
   <header>
@@ -56,55 +33,33 @@
 <body>
     <div> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.221235770529!2d-86.53614158506144!3d39.169690979529534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886c66dc13b64b9d%3A0x92447861fa38dd93!2s403+N+Walnut+St%2C+Bloomington%2C+IN+47404!5e0!3m2!1sen!2sus!4v1525039314575" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe> </div>
 
-    <form name="contactform" method="post" action="form.php">
+    <form name="login" method="post" action="verify.php">
     <table width="450px">
     <tr>
      <td valign="top">
-      <label for="first_name">First Name *</label>
+      <label for="username">Username</label>
      </td>
      <td valign="top">
-      <input type="text" name="first_name" maxlength="100" size="30">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
-      <label for="last_name">Last Name *</label>
-     </td>
-     <td valign="top">
-      <input type="text" name="last_name" maxlength="100" size="30">
+      <input type="text" name="username" maxlength="100" size="30">
      </td>
     </tr>
     <tr>
      <td valign="top">
-      <label for="email">Email *</label>
+      <label for="password">Password</label>
      </td>
      <td valign="top">
-      <input type="text" name="email" maxlength="100" size="30">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
-      <label for="phone">Phone</label>
-     </td>
-     <td valign="top">
-      <input type="text" name="phone" maxlength="50" size="30">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
-      <label for="message">Message *</label>
-     </td>
-     <td valign="top">
-      <textarea name="message" maxlength="2000" cols="35" rows="6"></textarea>
+      <input type="password" name="password" maxlength="100" size="30">
      </td>
     </tr>
     <tr>
      <td colspan="2" style="text-align:center">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Login" name="Login" class="btn btn-block btn-primary" />
      </td>
     </tr>
     </table>
     </form>
+
+
 
 </div>
 
@@ -113,7 +68,8 @@
 
 
 <footer>
-  Copyright 2018 Vittoria Capstone Makeup
+  <p>Copyright 2018 Vittoria </p>
+  <p>Capstone Makeup</p>
 </footer>
 
 

@@ -29,28 +29,29 @@
 
 
 <body>
-  <div id="content">
-        <div class="Category listing">
-          <h1>Dessert</h1>
+	<div id="hero-image">
+  <img src="images/tiny.png" width="900" height="200" alt="salad" />
+</div>
 
-          <h4><a href="menu.html">&larr; &#32;Back to Categories</a></h4>
-          <br/ >
+<div id="content">
 
-
-	<?php
+  <h2>Eat at Lil Bits! </h2>
+<br><br>
+<h1>Recent News Stories:</h1><br>
+  <?php
 $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_vpagliuc", "i491u18_vpagliuc");
 
 if (!$con)
-	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
+  {die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
 
 
-$sql = "SELECT i.cid, i.iid, i.item_name, i.disc, i.price, i.display FROM item as i WHERE i.cid= '6' and i.display= '1'";
+$sql = "SELECT title, pubdate, content FROM news LIMIT 3";
 $result = mysqli_query($con, $sql);
 
 if ($result->num_rows > 0) {
-	echo "<table><tr><th>Name</th><th>Description</th><th>Price</th></tr>";
+  echo "<table><tr><th>Title</th><th>Publish Date</th></tr>";
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["item_name"]."</td><td>".$row["disc"]."</td><td>".$row["price"]."</td></tr>";
+        echo "<tr><td>".$row["title"]."</td><td>".$row["pubdate"]."</td><td>".$row["content"]."</td></tr>";
     }
     echo "</table>";
 } else {
@@ -60,7 +61,14 @@ if ($result->num_rows > 0) {
 mysqli_close($con);
 ?>
 
-
+  <div id="service-blocks">
+    <div class="service">
+      <img src="images/outside.png" width="250" height="166" alt="inside of restaurant" />
+      <h1>You Hungry?</h1>
+      <p>Come on down!</p>
+      <p><a href="menu.html" class="learnmore">Tiny menu...</a> </p>
+    </div>
+  </div>
 
 </div>
 </body>
@@ -70,5 +78,6 @@ mysqli_close($con);
   <p>Copyright 2018 Vittoria </p>
   <p>Capstone Makeup</p>
 </footer>
+
 
 </html>
