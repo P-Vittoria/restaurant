@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  $_SESSION['user_id'] = 0;
+?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -12,7 +15,7 @@
 
           <p><?= 'You have been logged out!'; ?></p>
 
-          <a href="index.php"><button class="button button-block"/>Home</button></a>
+          <a href="../index.php"><button class="button button-block"/>Home</button></a>
 
     </div>
 </body>

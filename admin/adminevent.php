@@ -1,10 +1,12 @@
 <!doctype html>
 
+
+
 <html lang="en">
   <head>
-    <title>Lil'Bits</title>
+    <title>Restaurant</title>
     <meta charset="utf-8">
-    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheet.css" rel="stylesheet" type="text/css">
     <style type='text/css'>
 
       /* Style inputs with type="text", select elements and textareas */
@@ -58,13 +60,14 @@
 }
 
 
+
   </style>
   </head>
 
   <header>
       <h1>
-        <a href="index.php">
-          <img src="images/lilbits.png" width="100" height="100" alt="" />
+        <a href="../index.php">
+          <img src="../images/lilbits.png" width="100" height="100" alt="" />
         </a>
       </h1>
     </header>
@@ -72,60 +75,67 @@
 
     <navigation>
       <ul style="list-style-type: none;" class="subjects">
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="twitter.html">Twitter</a></li>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="news.php">News</a></li>
-        <li><a href="events.php">Events</a></li>
+        <li><a href="adminmenu.html">Edit Menu</a></li>
+        <li><a href="admincontact.php">Edit Contact</a></li>
+        <li><a href="adminabout.php">Edit About Us</a></li>
+        <li><a href="adminnews.php">Edit News</a></li>
+        <li><a href="adminevent.php">Edit Events</a></li>
         <br>
-        <li><a href="loginuser.php" style="color:#e03e52">Admin Login</a></li>
+        <li><a href="logout.php" style="color:#e03e52">Logout</a></li>
       </ul>
     </navigation>
 
 
 <body>
   <div id="content">
-        <div class="Category listing">
-          <h1>Sandwiches</h1>
+        <div class="Admin Event">
+<h1> Staff Admin Event Editor </h1>
 
-          <h4><a href="menu.html">&larr; &#32;Back to Categories</a></h4>
-          <br/ >
-          <img src="images/sandwich.jpg" width="550" height="322" alt="sandwich" />
 <br>
 
+<h3>Create Event </h3>
+<form action="insertevent.php" method="post">
+Title: <input type="text" name="title">
+<br>
+Date: <input type="text" name="eventdate">
+<br>
+Location: <input type="text" name="location">
+<br>
+Description: <input type="text" name="description">
+<br>
+Display: <input type="text" name="display">
+<br>
+<button type="submit" name="insertevent">Create Event</button>
+</form>
+</div>
+</div>
+<br>
 
-	<?php
+<?php
 $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_vpagliuc", "i491u18_vpagliuc");
 
 if (!$con)
-	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
+{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
 
 
-$sql = "SELECT i.cid, i.iid, i.item_name, i.disc, i.price, i.display FROM item as i WHERE i.cid= '3' and i.display= '1'";
+$sql = "SELECT title, eventdate, location, description FROM events";
 $result = mysqli_query($con, $sql);
 
 if ($result->num_rows > 0) {
-	echo "<table><tr><th>Name</th><th>Description</th><th>Price</th></tr>";
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["item_name"]."</td><td>".$row["disc"]."</td><td>".$row["price"]."</td></tr>";
-    }
-    echo "</table>";
+echo "<table><tr><th>Title</th><th>Date</th><th>Location</th><th>Descripton</th></tr>";
+  while($row = $result->fetch_assoc()) {
+      echo "<tr><td>".$row["title"]."</td><td>".$row["eventdate"]."</td><td>".$row["location"]."</td><td>".$row["description"]."</td></tr>";
+  }
+  echo "</table>";
 } else {
-    echo "0 results";
+  echo "0 results";
 }
 
 mysqli_close($con);
 ?>
 
+<br>
+<h4><a href="index.html">&larr; &#32;Back to Admin Center</a></h4>
 
-
-</div>
 </body>
-
-
-<footer>
-  <p>Copyright &copy; 2018 Vittoria </p>
-  <p>Capstone Makeup</p>
-</footer>
 </html>

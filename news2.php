@@ -103,7 +103,7 @@ mysqli_close($con);
 
 
 <footer>
-  <p>Copyright 2018 Vittoria </p>
+  <p>Copyright &copy; 2018 Vittoria </p>
   <p>Capstone Makeup</p>
 </footer>
 

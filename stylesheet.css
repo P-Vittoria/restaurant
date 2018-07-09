@@ -28,6 +28,7 @@ header {
   color: #FFFFFF;
 }
 
+
 header h1 {
   padding: 1em;
   margin: 0;
@@ -58,7 +59,6 @@ footer {
 navigation {
   float: left;
   width: 200px;
-  height: 100%;
   background: #7a6855;
 }
 
