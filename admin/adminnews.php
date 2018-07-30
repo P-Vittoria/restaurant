@@ -108,7 +108,7 @@ Publish Date: <input type="text" name="pubdate">
 <br>
 Content: <input type="text" name="content">
 <br>
-<button type="submit" name="insertitem">Insert News</button>
+<button type="submit" name="insertitem">Submit</button>
 </form>
 
 <br>

@@ -64,7 +64,7 @@ vertical-align: bottom;
 <body>
 	<div id="content">
 				<div class="Category listing">
-					<h1>Menu Items</h1>
+					<h1>Menu Categories</h1>
 					<br/ >
 
 <?php
@@ -74,13 +74,13 @@ if (!$con)
 	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
 
 
-	$sql = "SELECT  i.iid, c.category_name, i.cid, i.item_name, i.disc, i.price, i.display FROM item as i, category as c WHERE c.cid = i.cid ORDER BY i.iid ASC;";
+	$sql = "SELECT  cid, category_name FROM category" ;
 	$result = mysqli_query($con, $sql);
 
 if ($result->num_rows > 0) {
-	echo "<table><tr><th>Item ID</th><th>Category</th><th>Category ID</th><th>Item Name</th><th>Description</th><th>Price</th><th>Availability</th></tr>";
+	echo "<table><tr><th>Category ID</th><th>Category</th></tr>";
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["iid"]."</td><td>".$row["category_name"]."</td><td>".$row["cid"]."</td><td>".$row["item_name"]."</td><td>".$row["disc"]."</td><td>".$row["price"]."</td><td>".$row["display"]."</td></tr>";
+        echo "<tr><td>".$row["cid"]."</td><td>".$row["category_name"]."</td></tr>";
     }
     echo "</table>";
 } else {
