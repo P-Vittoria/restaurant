@@ -47,6 +47,10 @@ form {
 	border-radius: 5px;
 	background-color: #ffffff;
 	padding: 20px;
+  font-family: Trebuchet MS;
+  font-size: 18px;
+  width: 100%;
+  line-height: 1.6;
 }
 
 th, td {

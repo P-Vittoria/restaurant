@@ -7,46 +7,16 @@
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
     <style type='text/css'>
 
-      /* Style inputs with type="text", select elements and textareas */
-    input[type=text], select, textarea {
-      width: 40%; /* Full width */
-      padding: 12px; /* Some padding */
-      border: 1px solid #ccc; /* Gray border */
-      border-radius: 4px; /* Rounded borders */
-      box-sizing: border-box; /* Make sure that padding and width stays in place */
-      margin-top: 6px; /* Add a top margin */
-      margin-bottom: 16px; /* Bottom margin */
-      resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-    }
-
-    /* Style the submit button with a specific background color etc */
-    input[type=submit] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* When moving the mouse over the submit button, add a darker green color */
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-
     /* Add a background color and some padding around the form */
     table {
       border-radius: 5px;
       border-color: #000000;
       background-color: #F8F4D8;
       padding: 20px;
-    }
-
-    form {
-      width: 65%;
-      border-radius: 5px;
-      background-color: #ffffff;
-      padding: 20px;
+      font-family: Trebuchet MS;
+      font-size: 18px;
+      width: 100%;
+      line-height: 1.6;
     }
 
     th, td {
@@ -57,48 +27,42 @@
     vertical-align: bottom;
 }
 
-
   </style>
   </head>
 
-  <header>
-      <h1>
-        <a href="index.php">
-          <img src="images/lilbits.png" width="100" height="100" alt="" />
-        </a>
-      </h1>
-    </header>
-
-
-    <navigation>
-      <ul style="list-style-type: none;" class="subjects">
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="twitter.html">Twitter</a></li>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="news.php">News</a></li>
-        <li><a href="events.php">Events</a></li>
-        <br>
-        <li><a href="loginuser.php" style="color:#e03e52">Admin Login</a></li>
-      </ul>
-    </navigation>
-
-
 <body>
-  <div id="content">
-        <div class="Category listing">
-          <h1>News Stories</h1>
+  <header>
+    <h1>
+      <a href="index.php">
+        <img src="images/lilbits.png" width="100" height="100" alt="" />
+      </a>
+    </h1>
+  </header>
 
-          <h4><a href="index.html">&larr; &#32;Back to Main</a></h4>
-          <br/ >
 
+  <navigation>
+    <ul style="list-style-type: none;" class="subjects">
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="contact.php">Contact</a></li>
+      <li><a href="twitter.html">Twitter</a></li>
+      <li><a href="about.php">About Us</a></li>
+      <li><a href="news.php">News</a></li>
+      <li><a href="events.php">Events</a></li>
+      <br>
+      <li><a href="loginuser.php" style="color:#e03e52">Admin Login</a></li>
+    </ul>
+  </navigation>
 
-	<?php
+<div class="main-container">
+  <h1><center>News Stories</h1></center>
+
+  <br/ >
+
+<?php
 $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_vpagliuc", "i491u18_vpagliuc");
 
 if (!$con)
 	{die("Failed to connect to MySQL: " . mysqli_connect_error() ); }
-
 
 $sql = "SELECT title, pubdate, content FROM news";
 $result = mysqli_query($con, $sql);
@@ -116,21 +80,16 @@ if ($result->num_rows > 0) {
 mysqli_close($con);
 ?>
 
-
-
-</div>
-
 <br>
 <br>
 <br>
 <br>
-
-</body>
-
 
 <footer>
   <p>Copyright &copy; 2018 Vittoria </p>
   <p>Capstone Makeup</p>
 </footer>
+</div>
 
+</body>
 </html>

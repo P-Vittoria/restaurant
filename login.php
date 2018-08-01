@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_vpagliuc", "i491u18_vpagliuc");
 
 if (!$con)
@@ -24,7 +23,7 @@ $name = $user_row['username'];
 $encPassword = hash(md5,hash(whirlpool, $post_pass));
 
 if ($dbPass != $encPassword) {
-  echo "Bad Password";
+  header("Location: bad.php");
 }
 else {
   $_SESSION['user_id'] = $userId;

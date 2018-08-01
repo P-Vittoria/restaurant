@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
+<link href="https://fonts.googleapis.com/css?family=Alegreya:400,800" rel="stylesheet">
 
 html {
   height: 100%;
@@ -12,7 +13,7 @@ body {
   height: 100%;
   margin: auto;
   border: 0;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Alegreya", "Trebuchet MS", sans-serif;
   font-size: 13px;
   line-height: 15px;
   background: #c8ced2;
@@ -28,10 +29,15 @@ header {
   color: #FFFFFF;
 }
 
+h1 {
+  font-size: 30px;
+}
 
 header h1 {
   padding: 1em;
   margin: 0;
+  font-family: "Alegreya", "serif";
+  font-size: 30px;
 }
 
 #main {
@@ -43,7 +49,14 @@ header h1 {
   background: #c8ced2;
 }
 
+.main-container{
+  background-color: white;
+  width: calc(100% - 200px);
+  float: right;
+}
+
 footer {
+  bottom: 0;
   clear: both;
   height: 3em;
   margin: 0;
@@ -59,6 +72,7 @@ footer {
 navigation {
   float: left;
   width: 200px;
+  height: 100%;
   background: #7a6855;
 }
 
@@ -105,7 +119,7 @@ ul.about {
 }
 
 navigation li {
-  font-size: 16px;
+  font-size: 25px;
   line-height: 1.5em;
 }
 
@@ -130,9 +144,7 @@ navigation li {
 }
 
 #page h1 {
-  font-size: 16px;
   color: #000000;
-  line-height: normal;
 }
 
 #page h2 {
@@ -142,7 +154,7 @@ navigation li {
 }
 
 #page p {
-  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif" font-size: 12px;
+  font-family: "Trebuchet MS", "sans-serif" font-size: 12px;
   color: #000000;
   padding: 0px;
   line-height: normal;

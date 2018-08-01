@@ -1,13 +1,9 @@
-
-<?php
-      unset($_SESSION['user_id']);
-      session_destroy();
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Error</title>
-  <link href="../stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
 
 </head>
 <style>
@@ -64,13 +60,13 @@ padding: 12px 20px;
   <center>
   <div class="main-container">
     <div class="form">
-          <h1><font size= "7">Thanks for stopping by</h1></font>
+          <h1><font size= "7">Are you sure you belong here?</h1></font>
 
-          <img src="../images/pinch.png" width="400" height="639" alt="pinch" />
+          <img src="images/morty.jpg" width="600" height="539" alt="pinch" />
 
-          <p><font size= "5"> <?= 'You have been logged out!'; ?></p></font>
+          <p><font size= "5"> <?= 'Try not to mess up this time...'; ?></p></font>
 
-          <a href="../index.php"><button type="submit" name="submit">Home</button></a>
+          <a href="loginuser.php"><button type="submit" name="submit">Go back</button></a>
 
     </div>
   </div>
