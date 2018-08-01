@@ -45,7 +45,7 @@
   <div class="main-container">
     <center><h1> About Us</h1>
     <br/ >
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/NUrZ4ZOO0Hg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe width="100%" height="550" src="https://www.youtube.com/embed/NUrZ4ZOO0Hg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     	<?php
     $con=mysqli_connect("db.soic.indiana.edu", "i491u18_vpagliuc", "my+sql=i491u18_vpagliuc", "i491u18_vpagliuc");
