@@ -25,7 +25,7 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
 		//$fname = test_input($_POST["first_name"]);
 		//check is name only contains letters and white space
 		if (!preg_match("/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/",$_POST["pubdate"])) {
-			$form_errors[] = "Improper syntax. Format: YYYY-MM-DD";
+			$form_errors[] = "Fix Publish Date. Improper syntax. Format: YYYY-MM-DD";
 			$is_form_valid = false;
 		}
 	}
@@ -155,7 +155,8 @@ textarea {
                 echo("<li>".$error."</li>"); //show each individual error message
               }
               echo("</ul>");
-          } else{ //Show the success message
+          } else{
+						  $_POST=array();//Clear form data after successful post//Show the success message//Show the success message
               echo("<ul class='form-success'>The News has been added successfully!</ul>");
             }
           }

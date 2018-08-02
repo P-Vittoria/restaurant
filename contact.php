@@ -181,7 +181,8 @@ table {
                 echo("<li>".$error."</li>"); //show each individual error message
               }
               echo("</ul>");
-          } else{ //Show the success message
+          } else{
+							$_POST=array();//Clear form data after successful post//Show the success message//Show the success message
               echo("<ul class='form-success'>The form has been submitted successfully!</ul>");
             }
           }

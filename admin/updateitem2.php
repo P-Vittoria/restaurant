@@ -18,19 +18,14 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
     $is_form_valid = false;
 	}
 
-	if (empty($_POST["iid"])) {
-		$form_errors[] = "You forgot to enter an Item ID";
-    $is_form_valid = false;
-	}
-
 	if (empty($_POST["item_name"])) {
 		$form_errors[] = "You forgot to enter an Item Name";
     $is_form_valid = false;
 	} else {
 		//$fname = test_input($_POST["first_name"]);
 		//check is name only contains letters and white space
-		if (!preg_match("/^[a-zA-Z]*$/",$_POST["item_name"])) {
-			$form_errors[] = "Only letters and white space allowed.";
+		if (!preg_match("/^[a-zA-Z\s]*$/",$_POST["item_name"])) {
+			$form_errors[] = "Fix Item Name. Only letters and white space allowed.";
 			$is_form_valid = false;
 		}
 	}
@@ -45,11 +40,10 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
     $is_form_valid = false;
 	} else {
 		if (!preg_match("/^[0-9]+(?:\.[0-9]{0,2})?$/",$_POST["price"])) {
-			$form_errors[] = "Improper syntax. Proper syntax: 00.00";
+			$form_errors[] = "Fix the Price. Improper syntax. Proper syntax: 00.00";
 			$is_form_valid = false;
 		}
 	}
-
 
 	if (empty($_POST["display"])) {
 		$form_errors[] = "You forgot to enter if the item is Available.";
@@ -58,7 +52,7 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
 		//$fname = test_input($_POST["first_name"]);
 		//check is name only contains letters and white space
 		if (!preg_match("/^[0-1]/",$_POST["display"])) {
-			$form_errors[] = "Only numbers allowed are 1 and 0. 0 means No, 1 means Yes.";
+			$form_errors[] = "Fix the Display. Only numbers allowed are 1 and 0. 0 means No, 1 means Yes.";
 			$is_form_valid = false;
 		}
 	}
@@ -71,8 +65,8 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
 		$var_price = mysqli_real_escape_string($con,$_POST['price']);
 		$var_display = mysqli_real_escape_string($con,$_POST['display']);
 
-		$query = "UPDATE item SET cid='$var_cid', item_name='$var_name', disc='$var_disc', price='$var_price',
-		display='$var_display' WHERE iid='$var_iid'";
+		$query = "INSERT INTO item(cid, iid, item_name, disc, price, display)
+		VALUES ('$var_cid', '$var_iid', '$var_name', '$var_disc', '$var_price', '$var_display')";
       mysqli_query($con,$query);
   }
 }
@@ -81,15 +75,16 @@ mysqli_close($con);
 ?>
 <!doctype html>
 
+
 <html lang="en">
   <head>
-    <title>Update</title>
+    <title>Insert</title>
     <meta charset="utf-8">
     <link href="../stylesheet.css" rel="stylesheet" type="text/css">
 
     <style type='text/css'>
 
-		/* Style inputs with type="text", select elements and textareas */
+    /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */
@@ -174,7 +169,7 @@ table {
 	</navigation>
 
 <div class="main-container">
-	<center><h1>Update Item</h1></center>
+	<center><h1>Add New Item</h1></center>
 	<br/ >
 	<h4><a href="adminmenu.php">&larr; &#32;Back to Menu Editor</a></h4>
 	<br/ >
@@ -183,11 +178,11 @@ table {
 <button type="submit" name="submit" onclick=" window.open('category.php','_blank')">View Categories</button>
 <br><br>
 
-	<form name="updateitem" method="post" action="updateitem.php">
+	<form name="insertitem" method="post" action="insertitem.php">
 	<table width="450px">
 	<tr>
 		<td colspan="2">
-			<h1>Enter Item Info... </h1><br><br>
+			<h1> Enter Item Info... </h1><br><br>
 			<?php
           if(count($_POST)>0){ //Check to see $is_form_valid has been defined(means form has been submitted)
             if(count($form_errors)> 0 ){ // count elements in the error array to make sure its not empty
@@ -196,8 +191,9 @@ table {
                 echo("<li>".$error."</li>"); //show each individual error message
               }
               echo("</ul>");
-          } else{ //Show the success message
-              echo("<ul class='form-success'>The item has been updated successfully!</ul>");
+          } else{
+							$_POST=array();//Clear form data after successful post//Show the success message//Show the success message
+              echo("<ul class='form-success'>The item has been added successfully!</ul>");
             }
           }
         ?>
@@ -206,7 +202,7 @@ table {
 
 	<tr>
 	 <td valign="top">
-		<label for="cid">Edit Item with ID *</label>
+		<label for="cid">Category ID *</label>
 	 </td>
 	 <td valign="top">
 		<input type="text" name="cid" maxlength="50" size="30" value="<?php if (isset($_POST['cid'])) echo $_POST['cid']; ?>">
@@ -214,15 +210,7 @@ table {
 	</tr>
 	<tr>
 	 <td valign="top">
-		<label for="iid">Set Category ID to *</label>
-	 </td>
-	 <td valign="top">
-		<input type="text" name="iid" maxlength="50" size="30" value="<?php if (isset($_POST['iid'])) echo $_POST['iid']; ?>">
-	 </td>
-	</tr>
-	<tr>
-	 <td valign="top">
-		<label for="item_name">Set Item Name to *</label>
+		<label for="item_name">Item Name *</label>
 	 </td>
 	 <td valign="top">
 		<input type="text" name="item_name" maxlength="100" size="30" value="<?php if (isset($_POST['item_name'])) echo $_POST['item_name']; ?>">
@@ -230,7 +218,7 @@ table {
 	</tr>
 	<tr>
 	 <td valign="top">
-		<label for="disc">Set Description to *</label>
+		<label for="disc">Description *</label>
 	 </td>
 	 <td valign="top">
 		<input type="text" name="disc" maxlength="150" size="30" value="<?php if (isset($_POST['disc'])) echo $_POST['disc']; ?>">
@@ -238,15 +226,16 @@ table {
 	</tr>
 	<tr>
 	 <td valign="top">
-		<label for="price">Set Price to *</label>
+		<label for="price">Price *</label>
 	 </td>
 	 <td valign="top">
 		<input type="text" name="price" maxlength="150" size="30" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>">
+		<span class="error"><?= $name_error ?></span>
 	 </td>
 	</tr>
 	<tr>
 	 <td valign="top">
-		<label for="display">Set Availability to 1-Y 0-N *</label>
+		<label for="display">Available? 1-Y 0-N *</label>
 	 </td>
 	 <td valign="top">
 		<input type="text" name="display" maxlength="150" size="30" value="<?php if (isset($_POST['display'])) echo $_POST['display']; ?>">
@@ -261,11 +250,11 @@ table {
 
 	</table>
 	</form>
+	<br>
+	<br>
+	<br>
+	<br>
 
-	<br>
-	<br>
-	<br>
-	<br>
 <footer>
   Copyright &copy; 2018 Vittoria Capstone Makeup
 </footer>

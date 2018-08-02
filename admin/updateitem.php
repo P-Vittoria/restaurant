@@ -13,13 +13,13 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
   // $var_mid = mysqli_real_escape_string($con,$_POST['mid']);
   $is_form_valid = true;
 
-	if (empty($_POST["cid"])) {
-		$form_errors[] = "You forgot to enter a Category ID";
-    $is_form_valid = false;
-	}
-
 	if (empty($_POST["iid"])) {
 		$form_errors[] = "You forgot to enter an Item ID";
+		$is_form_valid = false;
+	}
+
+	if (empty($_POST["cid"])) {
+		$form_errors[] = "You forgot to enter a Category ID";
     $is_form_valid = false;
 	}
 
@@ -29,8 +29,8 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
 	} else {
 		//$fname = test_input($_POST["first_name"]);
 		//check is name only contains letters and white space
-		if (!preg_match("/^[a-zA-Z]*$/",$_POST["item_name"])) {
-			$form_errors[] = "Only letters and white space allowed.";
+		if (!preg_match("/^[a-zA-Z\s]*$/",$_POST["item_name"])) {
+			$form_errors[] = "Fix Item Name. Only letters and white space allowed.";
 			$is_form_valid = false;
 		}
 	}
@@ -45,7 +45,7 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
     $is_form_valid = false;
 	} else {
 		if (!preg_match("/^[0-9]+(?:\.[0-9]{0,2})?$/",$_POST["price"])) {
-			$form_errors[] = "Improper syntax. Proper syntax: 00.00";
+			$form_errors[] = "Fix Price. Improper syntax. Proper syntax: 00.00";
 			$is_form_valid = false;
 		}
 	}
@@ -58,21 +58,20 @@ if (count($_POST) > 0 ) { //Check to see if form has been submitted
 		//$fname = test_input($_POST["first_name"]);
 		//check is name only contains letters and white space
 		if (!preg_match("/^[0-1]/",$_POST["display"])) {
-			$form_errors[] = "Only numbers allowed are 1 and 0. 0 means No, 1 means Yes.";
+			$form_errors[] = "Fix Display. Only numbers allowed are 1 and 0. 0 means No, 1 means Yes.";
 			$is_form_valid = false;
 		}
 	}
 
   if($is_form_valid){
-		$var_cid = mysqli_real_escape_string($con,$_POST['cid']);
 		$var_iid = mysqli_real_escape_string($con,$_POST['iid']);
+		$var_cid = mysqli_real_escape_string($con,$_POST['cid']);
 		$var_name = mysqli_real_escape_string($con,$_POST['item_name']);
 		$var_disc = mysqli_real_escape_string($con,$_POST['disc']);
 		$var_price = mysqli_real_escape_string($con,$_POST['price']);
 		$var_display = mysqli_real_escape_string($con,$_POST['display']);
 
-		$query = "UPDATE item SET cid='$var_cid', item_name='$var_name', disc='$var_disc', price='$var_price',
-		display='$var_display' WHERE iid='$var_iid'";
+		$query = "UPDATE item SET cid='$var_cid', item_name='$var_name', disc='$var_disc', price='$var_price', display='$var_display' WHERE iid='$var_iid'";
       mysqli_query($con,$query);
   }
 }
@@ -196,7 +195,8 @@ table {
                 echo("<li>".$error."</li>"); //show each individual error message
               }
               echo("</ul>");
-          } else{ //Show the success message
+          } else{
+							$_POST=array();//Clear form data after successful post//Show the success message//Show the success message
               echo("<ul class='form-success'>The item has been updated successfully!</ul>");
             }
           }
@@ -206,18 +206,18 @@ table {
 
 	<tr>
 	 <td valign="top">
-		<label for="cid">Edit Item with ID *</label>
+		<label for="iid">Edit Item with ID *</label>
 	 </td>
 	 <td valign="top">
-		<input type="text" name="cid" maxlength="50" size="30" value="<?php if (isset($_POST['cid'])) echo $_POST['cid']; ?>">
+		<input type="text" name="iid" maxlength="50" size="30" value="<?php if (isset($_POST['iid'])) echo $_POST['iid']; ?>">
 	 </td>
 	</tr>
 	<tr>
 	 <td valign="top">
-		<label for="iid">Set Category ID to *</label>
+		<label for="cid">Set Category ID to *</label>
 	 </td>
 	 <td valign="top">
-		<input type="text" name="iid" maxlength="50" size="30" value="<?php if (isset($_POST['iid'])) echo $_POST['iid']; ?>">
+		<input type="text" name="cid" maxlength="50" size="30" value="<?php if (isset($_POST['cid'])) echo $_POST['cid']; ?>">
 	 </td>
 	</tr>
 	<tr>
